@@ -12,3 +12,5 @@ https://github.com/rnickel1/HRAP_Source ;
 Sunride student team https://www.linkedin.com/company/team-sunride/?originalSubdomain=uk ; 
 https://github.com/miamrljic03/NitrousOxide_Thermo_Diagrams ; 
 https://www.halfcatrocketry.com/halfcatsim
+
+reference : http://www.aspirespace.org.uk/downloads/Modelling%20the%20nitrous%20run%20tank%20emptying.pdf
