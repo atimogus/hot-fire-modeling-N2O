@@ -8,7 +8,7 @@ simulation will take about 1 minute to execute (depends on how much of oxidizer 
 compared with HalfCatSim this python model has error of ~2% if accounted for input error, it can be said that error of this model is less than 2%
 
 big thanks to r/rocketry community, 
-https://github.com/rnickel1/HRAP_Source
-Sunride student team https://www.linkedin.com/company/team-sunride/?originalSubdomain=uk
-https://github.com/miamrljic03/NitrousOxide_Thermo_Diagrams
+https://github.com/rnickel1/HRAP_Source ; 
+Sunride student team https://www.linkedin.com/company/team-sunride/?originalSubdomain=uk ; 
+https://github.com/miamrljic03/NitrousOxide_Thermo_Diagrams ; 
 https://www.halfcatrocketry.com/halfcatsim
