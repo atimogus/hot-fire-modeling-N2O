@@ -41,8 +41,9 @@ A_fuel = mf_dot / (C_d * np.sqrt(2 * density_f * (pressure_l - pressure_friction
 D_fuel_mm = np.sqrt(A_fuel * 4/np.pi) * 1000
 
 #combustion modeling
-df = CEA_start(oxidizer, fuel_CEA, temp, pc, o_f)
+df = CEA_start(oxidizer, fuel_CEA, temp, pc/1e5, o_f)
 At_m2, Dt = Dt_mm(df["gam"][0], df["t"][0],df["mw"][0], ml_dot + ml_dot/o_f, pc, df['R'][0])
+De = De_mm(df["gam"][0], df["t"][0],df["mw"][0], ml_dot + ml_dot/o_f, P_atmosphere, pc, df['R'][0])
 
 liquid_pressure = []
 liquid_massflow = []
@@ -57,6 +58,7 @@ dp_dt = []
 pressure_c = []
 temperature_c = []
 total_thrust = []
+density_ex_gas = []
 o_f_old = o_f
 i=0
 
@@ -84,7 +86,7 @@ while mass_l > ml_dot * 1.5:
         if int(o_f * 100) % 10 != int(o_f_old * 100) % 10:
             i += 1
             print(i)
-            df = CEA_start(oxidizer, fuel_CEA, temp, pc, o_f)
+            df = CEA_start(oxidizer, fuel_CEA, temp, pc/1e5, o_f)
             pc = pc_func(df["gam"][0], df["t"][0], df["mw"][0], (ml_dot + mf_dot)/time_step, P_atmosphere, At_m2, df['R'][0])
         o_f_old = o_f  # Update O_F_old
         
@@ -95,6 +97,7 @@ while mass_l > ml_dot * 1.5:
         fuel_massflow = np.append(fuel_massflow, mf_dot)
         total_thrust.append(thrust)
         pressure_c.append(pc)
+        density_ex_gas.append(df["rho"][0])
         
     else:
         mf_dot = 0
@@ -198,3 +201,9 @@ plt.tight_layout()
 plt.show()
 
 print(f"mean ox mass flow = {np.mean(liquid_massflow) / time_step:.2f}, mean fuel mass flow = {np.mean(fuel_massflow[fuel_massflow != 0]):.2f}, average thrust = {np.mean(total_thrust)}")
+
+#test code
+stay_time = 1
+volume_chamb = (np.mean(liquid_massflow) / time_step) * np.mean(density_ex_gas) * stay_time
+l_star = volume_chamb / At_m2
+print(f"L* = {l_star:.2f}, volume_chamb = {volume_chamb}")
