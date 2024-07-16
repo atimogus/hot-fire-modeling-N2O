@@ -1,7 +1,7 @@
 modeling hot fire test of a self pressurized N2O rocket motor
 
-in order to run this code you must have N2Omodel-izgaranje.py and functions.py in the same folder, open N2Omodel-izgaranje.py in your favourite IDE, tweak initial conditions and run your simulation
-simulation will take about 1 minute to execute (depends on how much of oxidizer and fuel you have and mass flow rate) if high mass and low mass fuel rate longer you will wait because CEApy library is very slow at calculating 
+open pyhton file in your favourite IDE, tweak initial conditions and run your simulation
+simulation will take about 1 minute to execute (depends on how much of oxidizer and fuel you have and mass flow rate) if high mass and low mass fuel rate longer you will wait
 
 ![image](https://github.com/atimogus/hot-fire-modeling-N2O/assets/52748147/b93205de-29f7-473d-a70d-9cbcf365fcb4)
 
