@@ -1,5 +1,7 @@
 modeling hot fire test of a self pressurized N2O rocket motor
 
+if you get YAML FILE error, in YAML_FILE string you must put path to YAML file which is in default path of cantera library
+
 open pyhton file in your favourite IDE, tweak initial conditions and run your simulation
 simulation will take about 1 minute to execute (depends on how much of oxidizer and fuel you have and mass flow rate) if high mass and low mass fuel rate longer you will wait
 
